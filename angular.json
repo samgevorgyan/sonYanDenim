@@ -121,8 +121,16 @@
               "devServerTarget": "son-yan-denim:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "son-yan-denim"
+    }
+  },
+  "defaultProject": "son-yan-denim",
+  "cli": {
+    "analytics": false
+  }
 }
