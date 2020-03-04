@@ -45,5 +45,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#custom ignors
+# custom ignors
 package-lock.json

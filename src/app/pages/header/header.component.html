@@ -1,0 +1,102 @@
+<header>
+  <mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport="true"
+      role="navigation"
+      [mode]="'over'"
+    >
+      <mat-nav-list>
+        <side-nav-menu> </side-nav-menu>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="logo_part">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async"
+          >
+            <fa-icon [icon]="['fas', 'star']"></fa-icon>
+          </button>
+          <span class="logo" [routerLink]="'/home'">SON-YAN Denim</span>
+        </div>
+
+        <div
+          class="links_part"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxFlex="50"
+          fxLayoutGap="20px"
+        >
+          <div
+            class="avatar_part"
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+          >
+            <span class="avatar_span" *ngIf="false" [routerLink]="'/user'">
+              gexAMIK
+            </span>
+
+            <span (click)="openLoginModal()">
+              {{ "HEADER.LOGIN" | translate }}</span
+            >
+          </div>
+
+          <div
+            class="language_part"
+            [matMenuTriggerFor]="LanguageMenu"
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+          >
+            <img
+              [src]="'assets/img/flags/' + languageFromUrl + '.png'"
+              alt="flag"
+              title="Image Title"
+            />
+            {{ languageFromUrl }}
+
+            <mat-menu #LanguageMenu="matMenu">
+              <div
+                class="language_list_div"
+                [ngClass]="{ selected_language: lang.selected }"
+                *ngFor="let lang of languageList"
+              >
+                <span
+                  [title]="lang.name"
+                  (click)="changeLanguage(lang.name)"
+                  fxLayout="row"
+                  fxLayoutAlign="start center "
+                >
+                  <img
+                    [src]="'assets/img/flags/' + lang.flag + '.png'"
+                    alt="flag"
+                    [title]="lang.name"
+                  />
+                  <span class=" lang_text">{{ lang.name }}</span>
+                </span>
+              </div>
+            </mat-menu>
+          </div>
+
+          <div class="settings_part">
+            <fa-icon
+              [icon]="['fas', 'star']"
+              [matMenuTriggerFor]="settingsMenu"
+            ></fa-icon>
+
+            <mat-menu #settingsMenu="matMenu">
+              <div class="settings_logout" (click)="logOut()">
+                logout
+              </div>
+            </mat-menu>
+          </div>
+        </div>
+      </mat-toolbar>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</header>
