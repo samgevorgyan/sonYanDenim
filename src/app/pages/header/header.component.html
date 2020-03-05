@@ -14,38 +14,32 @@
     <mat-sidenav-content>
       <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
         <div class="logo_part">
-          <button
+          <fa-icon
             type="button"
             aria-label="Toggle sidenav"
             mat-icon-button
             (click)="drawer.toggle()"
             *ngIf="isHandset$ | async"
-          >
-            <fa-icon [icon]="['fas', 'star']"></fa-icon>
-          </button>
-          <span class="logo" [routerLink]="'/home'">SON-YAN Denim</span>
+            icon="bars"
+          ></fa-icon>
+
+          <div class="logo_div" fxLayout="column" fxLayoutAlign="center center">
+            <span class="logo_text" [routerLink]="'/home'">SON_YAN Denim</span>
+            <img src="../../../assets/img/logo/noun_textile_2155820.svg" />
+          </div>
         </div>
 
         <div
           class="links_part"
           fxLayout="row"
-          fxLayoutAlign="center center"
+          fxLayoutAlign="end center"
           fxFlex="50"
           fxLayoutGap="20px"
+          *ngIf="!(isHandset$ | async)"
         >
-          <div
-            class="avatar_part"
-            fxLayout="row"
-            fxLayoutAlign="space-between center"
+          <span class="login_part" (click)="openLoginModal()">
+            {{ "HEADER.LOGIN" | translate }}</span
           >
-            <span class="avatar_span" *ngIf="false" [routerLink]="'/user'">
-              gexAMIK
-            </span>
-
-            <span (click)="openLoginModal()">
-              {{ "HEADER.LOGIN" | translate }}</span
-            >
-          </div>
 
           <div
             class="language_part"
@@ -83,17 +77,15 @@
             </mat-menu>
           </div>
 
-          <div class="settings_part">
-            <fa-icon
-              [icon]="['fas', 'star']"
-              [matMenuTriggerFor]="settingsMenu"
-            ></fa-icon>
+          <div class="shop_card">
+            <fa-icon [icon]="['far', 'heart']"></fa-icon>
+          </div>
+          <div class="shop_card" matBadge="8" matBadgePosition="after">
+            <fa-icon icon="shopping-bag"></fa-icon>
+          </div>
 
-            <mat-menu #settingsMenu="matMenu">
-              <div class="settings_logout" (click)="logOut()">
-                logout
-              </div>
-            </mat-menu>
+          <div class="shop_card">
+            <fa-icon icon="question-circle"></fa-icon>
           </div>
         </div>
       </mat-toolbar>

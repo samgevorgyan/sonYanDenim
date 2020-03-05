@@ -1,3 +1,5 @@
+import { LanguageService } from "src/app/shared/services/language.service";
+
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { languageList } from "src/app/utils/language.list";
@@ -10,12 +12,12 @@ import { languageList } from "src/app/utils/language.list";
 export class SideNavMenuComponent implements OnInit {
   @Output() language = new EventEmitter();
   @Input() user;
-  @Input() languageFromUrl;
+  languageFromUrl = this.languageService.languageFromUrl;
   user$ = this.user;
   showConfigMenu = false;
   showLanguageList = false;
   languageList = languageList;
-  constructor() {}
+  constructor(private languageService: LanguageService) {}
 
   ngOnInit(): void {}
 

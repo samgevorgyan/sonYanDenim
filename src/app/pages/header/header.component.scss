@@ -20,39 +20,29 @@ header {
 
     .logo_part {
       font-size: 16px;
-      .logo {
-        margin-left: 70px;
-        font-size: 26px;
-        font-style: italic;
-        text-transform: uppercase;
+      .logo_div {
+        .logo_text {
+          font-size: 20px;
+          font-style: italic;
+          text-transform: uppercase;
+        }
+        img {
+          width: 30px;
+          height: 30px;
+        }
       }
     }
 
     .links_part {
       font-size: 16px;
 
-      .avatar_part {
-        span {
-          cursor: pointer;
-        }
-
-        .avatar_span {
-          width: 50px;
-          height: 50px;
-          margin-right: 10px;
-
-          img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-          }
-        }
+      .login_part {
       }
 
       .language_part {
         cursor: pointer;
         text-transform: capitalize;
-        padding: 0 20px;
+
         img {
           width: 20px;
           height: 20px;
@@ -60,8 +50,12 @@ header {
         }
       }
 
-      .settings_part {
+      .shop_card {
+        padding-top: 5px;
         cursor: pointer;
+        fa-icon {
+          font-size: 1.2rem;
+        }
       }
     }
   }
@@ -87,13 +81,6 @@ header {
         font-size: 1.2rem;
         text-transform: uppercase;
       }
-    }
-
-    .settings_logout {
-      padding: 7px;
-      font-size: 1.2rem;
-      text-transform: capitalize;
-      cursor: pointer;
     }
   }
 }

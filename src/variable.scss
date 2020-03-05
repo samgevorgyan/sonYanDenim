@@ -8,12 +8,12 @@ $default_radius: 38px;
 //mixins
 
 @mixin header_gradient {
-  background: rgb(36, 129, 102);
+  background: rgb(9, 93, 37);
   background: linear-gradient(
     90deg,
-    rgba(36, 129, 102, 1) 0%,
-    rgba(7, 74, 67, 1) 61%,
-    rgba(10, 16, 12, 1) 100%
+    rgba(9, 93, 37, 1) 0%,
+    rgba(31, 116, 70, 1) 100%,
+    rgba(20, 199, 122, 1) 100%
   );
 }
 @mixin for-size($range) {

@@ -4,6 +4,7 @@ import { MatSliderModule } from "@angular/material/slider";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatBadgeModule } from "@angular/material/badge";
 
 @NgModule({
   declarations: [],
@@ -12,7 +13,8 @@ import { MatMenuModule } from "@angular/material/menu";
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatBadgeModule
   ]
 })
 export class CustomMaterialModule {}

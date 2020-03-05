@@ -16,17 +16,13 @@ export class AppComponent {
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
     translate: TranslateService,
-    private localizeService: LocalizeRouterService,
     private languageService: LanguageService
   ) {
     if (isPlatformBrowser(platformId)) {
-      translate.setDefaultLang("am");
-      translate.addLangs(languages);
       const languageOfBrowser = translate.getBrowserLang();
       const languageFromUrl = this.languageService.languageFromUrl;
       const lang: string = languageFromUrl || languageOfBrowser;
-      translate.use(lang.match(/en|am|/) ? lang : "am");
-
+      translate.use(lang.includes("en") || lang.includes("am") ? lang : "am");
       // this.authorizationService.keepLoggedIn();
     }
   }

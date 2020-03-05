@@ -5,7 +5,13 @@ import {
   FaIconLibrary
 } from "@fortawesome/angular-fontawesome";
 
-import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faShoppingBag,
+  faQuestionCircle,
+  faSearch
+} from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 @NgModule({
   declarations: [],
@@ -13,6 +19,12 @@ import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
 })
 export class CustomFontAwesomeModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(fasStar);
+    library.addIcons(
+      faShoppingBag,
+      faBars,
+      faHeart,
+      faQuestionCircle,
+      faSearch
+    );
   }
 }

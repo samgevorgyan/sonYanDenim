@@ -39,9 +39,6 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CustomMaterialModule,
-    CustomFontAwesomeModule,
-    FlexLayoutModule,
 
     TranslateModule.forRoot({
       loader: {

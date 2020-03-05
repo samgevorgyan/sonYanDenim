@@ -1,3 +1,4 @@
+import { CustomFontAwesomeModule } from "./../custom-font-awesome/custom-font-awesome.module";
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -18,7 +19,8 @@ import { routes } from "src/app/app.routes";
     LocalizeRouterModule,
     ReactiveFormsModule,
     CustomMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CustomFontAwesomeModule
   ]
 })
 export class ShareModule {}
