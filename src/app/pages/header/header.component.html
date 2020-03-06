@@ -13,7 +13,11 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
-        <div class="logo_part">
+        <div
+          class="logo_part"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
           <fa-icon
             type="button"
             aria-label="Toggle sidenav"
@@ -25,7 +29,7 @@
 
           <div class="logo_div" fxLayout="column" fxLayoutAlign="center center">
             <span class="logo_text" [routerLink]="'/home'">SON_YAN Denim</span>
-            <img src="../../../assets/img/logo/noun_textile_2155820.svg" />
+            <img src="assets/img/logo/noun_textile_2155820.svg" />
           </div>
         </div>
 
