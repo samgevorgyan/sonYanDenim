@@ -9,9 +9,11 @@ import {
   faBars,
   faShoppingBag,
   faQuestionCircle,
-  faSearch
+  faSearch,
+  faAngleDown,
+  faAngleUp,
+  faHeart
 } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 @NgModule({
   declarations: [],
@@ -24,7 +26,9 @@ export class CustomFontAwesomeModule {
       faBars,
       faHeart,
       faQuestionCircle,
-      faSearch
+      faSearch,
+      faAngleDown,
+      faAngleUp
     );
   }
 }

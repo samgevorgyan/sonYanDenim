@@ -28,8 +28,7 @@
           ></fa-icon>
 
           <div class="logo_div" fxLayout="column" fxLayoutAlign="center center">
-            <span class="logo_text" [routerLink]="'/home'">SON_YAN Denim</span>
-            <img src="assets/img/logo/noun_textile_2155820.svg" />
+            <img src=" assets/img/logo/main_logo.svg" />
           </div>
         </div>
 
@@ -48,6 +47,8 @@
           <div
             class="language_part"
             [matMenuTriggerFor]="LanguageMenu"
+            (menuClosed)="isMenuOpend = false"
+            (menuOpened)="isMenuOpend = true"
             fxLayout="row"
             fxLayoutAlign="space-between center"
           >
@@ -56,7 +57,11 @@
               alt="flag"
               title="Image Title"
             />
+
             {{ languageFromUrl }}
+
+            <fa-icon icon="angle-down" *ngIf="!isMenuOpend"></fa-icon>
+            <fa-icon icon="angle-up" *ngIf="isMenuOpend"></fa-icon>
 
             <mat-menu #LanguageMenu="matMenu">
               <div
@@ -82,7 +87,7 @@
           </div>
 
           <div class="shop_card">
-            <fa-icon [icon]="['far', 'heart']"></fa-icon>
+            <fa-icon icon="heart"></fa-icon>
           </div>
           <div class="shop_card" matBadge="8" matBadgePosition="after">
             <fa-icon icon="shopping-bag"></fa-icon>

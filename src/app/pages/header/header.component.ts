@@ -1,5 +1,11 @@
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
 
 import { Observable } from "rxjs";
 import { map, shareReplay, tap } from "rxjs/operators";
@@ -16,7 +22,7 @@ import { LocalizeRouterService } from "@gilsdav/ngx-translate-router";
 export class HeaderComponent implements OnInit {
   languageList = languageList;
   languageFromUrl;
-
+  isMenuOpend: boolean;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.XSmall)
     .pipe(

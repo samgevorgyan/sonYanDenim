@@ -1,21 +1,13 @@
 // colors
 $main_blue_color: #24bcf2;
-
+// $header_background_color: #4e645e;
+$header_background_color: #1d6141;
 //size
 $default_height: 45px;
 $default_radius: 38px;
 
 //mixins
 
-@mixin header_gradient {
-  background: rgb(9, 93, 37);
-  background: linear-gradient(
-    90deg,
-    rgba(9, 93, 37, 1) 0%,
-    rgba(31, 116, 70, 1) 100%,
-    rgba(20, 199, 122, 1) 100%
-  );
-}
 @mixin for-size($range) {
   $s374: 374px;
   $s599: 599px;
