@@ -1,3 +1,4 @@
+import { strict } from "assert";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import {
   Component,
@@ -21,7 +22,7 @@ import { LocalizeRouterService } from "@gilsdav/ngx-translate-router";
 })
 export class HeaderComponent implements OnInit {
   languageList = languageList;
-  languageFromUrl;
+  languageFromUrl$ = this.languageService.languageFromUrl$;
   isMenuOpend: boolean;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.XSmall)
@@ -39,15 +40,16 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.languageFromUrl = this.languageService.languageFromUrl;
-    this.getSelectedLanguage(this.languageFromUrl);
+    this.languageFromUrl$.subscribe((lang: string) => {
+      this.setSelectedLanguage(lang);
+    });
   }
 
   openLoginModal() {
     // this.dialogService.openDialog(LoginDialogComponent, "650px");
   }
 
-  getSelectedLanguage(lang) {
+  setSelectedLanguage(lang: string) {
     this.languageList.forEach(key => {
       if (key.name === lang) {
         key.selected = true;
@@ -57,12 +59,11 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  changeLanguage(lang) {
+  changeLanguage(lang: string) {
     this.translate.use(lang);
     this.localizeService.changeLanguage(lang);
-    this.languageService.setLanguageFromUrl();
-    this.languageFromUrl = this.languageService.languageFromUrl;
-    this.getSelectedLanguage(lang);
+    this.languageService.emitLanguageChange(lang);
+    this.setSelectedLanguage(lang);
   }
 
   logOut() {

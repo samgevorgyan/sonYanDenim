@@ -15,7 +15,10 @@
     (click)="openConfigMenu()"
   >
     <span>configuration</span>
-    <img [src]="'assets/img/flags/' + languageFromUrl + '.png'" alt="flag" />
+    <img
+      [src]="'assets/img/flags/' + (languageFromUrl$ | async) + '.png'"
+      alt="flag"
+    />
     <fa-icon iocn="right"></fa-icon>
   </div>
 
@@ -58,7 +61,7 @@
             fxLayoutAlign="start center "
           >
             <img
-              [src]="'assets/img/flags/32/' + lang.flag + '.png'"
+              [src]="'assets/img/flags/' + lang.flag + '.png'"
               alt="flag"
               [title]="lang.name"
             />

@@ -3,6 +3,8 @@ import { LanguageService } from "src/app/shared/services/language.service";
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { languageList } from "src/app/utils/language.list";
+import { TranslateService } from "@ngx-translate/core";
+import { LocalizeRouterService } from "@gilsdav/ngx-translate-router";
 
 @Component({
   selector: "side-nav-menu",
@@ -10,14 +12,17 @@ import { languageList } from "src/app/utils/language.list";
   styleUrls: ["./side-nav-menu.component.scss"]
 })
 export class SideNavMenuComponent implements OnInit {
-  @Output() language = new EventEmitter();
   @Input() user;
-  languageFromUrl = this.languageService.languageFromUrl;
+  languageFromUrl$ = this.languageService.languageFromUrl$;
   user$ = this.user;
   showConfigMenu = false;
   showLanguageList = false;
   languageList = languageList;
-  constructor(private languageService: LanguageService) {}
+  constructor(
+    private languageService: LanguageService,
+    private translate: TranslateService,
+    private localizeService: LocalizeRouterService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -27,7 +32,9 @@ export class SideNavMenuComponent implements OnInit {
   openLanguageList() {
     this.showLanguageList = !this.showLanguageList;
   }
-  changeLanguage(lang) {
-    this.language.emit(lang);
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    this.localizeService.changeLanguage(lang);
+    this.languageService.emitLanguageChange(lang);
   }
 }
